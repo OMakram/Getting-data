@@ -27,7 +27,7 @@ total<-tot[,ind]
 activities<-activitylabel$V2[total[,81]]
 total[,81]<-activities
 #From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-total$activity <- factor(total$activity, levels = activitylabel[,1], labels = activitylabel[,2])
+total$activity <- as.factor(total$activity)
 total$subject <- as.factor(total$subject)
 library(reshape2 )
 total.melted <- melt(total, id = c("subject", "activity"))
